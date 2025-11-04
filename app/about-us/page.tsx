@@ -2,6 +2,7 @@ import Hero from '@/components/section/hero'
 import About from '@/components/section/about'
 import WhatWeDo from '@/components/section/whatwedo'
 import AboutFounder from '@/components/section/about-founder'
+import AboutTeam from '@/components/section/about-team'
 
 import AboutImage from '@/public/img-about.jpg'
 import KevinImage from '@/public/img-kevin.jpg'
@@ -83,6 +84,11 @@ export default function AboutUsPage() {
                     title: 'Book a Strategy Call',
                     target: '_self',
                 }}
+            />
+            <AboutTeam
+                subtitle="Our Team"
+                title="Meet The Team Behind Your Growth"
+                description="A diverse team of strategists, creatives, and operators committed to driving measurable results."
             />
         </>
     )
