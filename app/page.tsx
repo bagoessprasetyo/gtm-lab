@@ -1,65 +1,155 @@
-import Image from "next/image";
+import Hero from '@/components/section/hero'
+import Intro from '@/components/section/intro'
+import WhatWeDo from '@/components/section/whatwedo'
+import Services from '@/components/section/services'
+import Works from '@/components/section/works'
+import Process from '@/components/section/process'
+
+import workKAIE from '@/public/work/img-work-kaie.png'
+import workDutchStartUp from '@/public/work/img-work-dutch-startup.png'
 
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    return (
+        <>
+            <Hero
+                variant="homepage"
+                title="Supercharge Your Growth"
+                description="We build full-funnel growth systems — so revenue becomes predictable."
+                subtitle="Your full-funnel growth partner"
+                link={{
+                    url: '/contact',
+                    title: 'Book a Strategy Call',
+                    target: '_self',
+                }}
+                video={{
+                    src: '/video/video-main.mp4',
+                    poster: '/video/video-main.jpg',
+                }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+            <Intro
+                typingText={{
+                    before: 'Everyone wants growth <br />Few have the ',
+                    words: ['marketing', 'sales', 'design', 'technology'],
+                    after: ' systems <br />to make it happen',
+                    speed: 80,
+                    delay: 2000,
+                }}
+                clients={[
+                    { img: 'img-lion-parcel.png', title: 'Lion Parcel' },
+                    { img: 'img-cinepolis.png', title: 'Cinepolis' },
+                    { img: 'img-dhl.png', title: 'DHL' },
+                    { img: 'img-ashley.png', title: 'Ashley Hotel Group' },
+                    { img: 'img-jnt.png', title: 'J&T Express' },
+                    { img: 'img-dore.png', title: 'Dore by LeTAO' },
+                    { img: 'img-azure-risk.png', title: 'Azure Risk' },
+                    { img: 'img-zenith.png', title: 'Zenith' },
+                    { img: 'img-ikigai.png', title: 'IKIGAI HK' },
+                    { img: 'img-bellezza.png', title: 'Bellezza' },
+                    {
+                        img: 'img-shabushabu-express.png',
+                        title: 'Shabushabu Express',
+                    },
+                    { img: 'img-gkb.png', title: 'Garuda Kencana Batik' },
+                    { img: 'img-hokione.png', title: 'Hokione' },
+                    { img: 'img-peraga.png', title: 'Peraga Expo' },
+                    {
+                        img: 'img-dri.png',
+                        title: 'Debt Recovery Indonesia',
+                    },
+                    { img: 'img-balkan.png', title: 'Balkan Shawarma' },
+                    { img: 'img-izzy.png', title: 'Izzy' },
+                    { img: 'img-scuto.png', title: 'Scuto' },
+                ]}
+                description="GTMLab powers full-funnel strategy and growth systems for global brands"
+                link={{
+                    url: '/contact',
+                    title: 'Book a Strategy Call',
+                    target: '_self',
+                }}
+            />
+            <WhatWeDo
+                subtitle="What We Do"
+                title="We understand every step of the growth funnel, because we operate on all of it."
+                itemLists={[
+                    {
+                        title: 'Awareness',
+                        description:
+                            'Making your first impression unforgettable',
+                    },
+                    {
+                        title: 'Interest',
+                        description:
+                            'Sparking curiosity that draws people closer',
+                    },
+                    {
+                        title: 'Desire',
+                        description: 'Building urgency, value, and trust',
+                    },
+                    {
+                        title: 'Conversion',
+                        description: 'Turning intent into revenue',
+                    },
+                    {
+                        title: 'Retention',
+                        description: 'Scaling loyalty and lifetime value',
+                    },
+                ]}
+                video={{
+                    src: '/video/video-homepage.mp4',
+                }}
+            />
+            <Services
+                subtitle="What We’re Known For"
+                title="Real growth is not luck, it’s designed."
+                description="Every strategy we build is rooted in Data, Creativity, and Technology"
+            />
+            <Works
+                subtitle="Real numbers - Real systems - Real growth."
+                title="Real Growth is not luck, it's designed."
+                description="We’ve helped startups, enterprises, and everything in between build scalable GTM engines:"
+                link={{
+                    url: '/contact',
+                    title: 'Book a Call',
+                    target: '_self',
+                }}
+                works={[
+                    {
+                        id: 1,
+                        title: 'KAIE',
+                        image: workKAIE.src,
+                        shortDescription:
+                            'Helping Korean-inspired brand KAIE redefine their brand marketing using AI and performance marketing',
+                        labels: [
+                            { title: 'Performance Marketing' },
+                            { title: 'Market-Entry' },
+                            { title: 'Lead Generation' },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        title: 'Tomazz',
+                        image: workDutchStartUp.src,
+                        shortDescription:
+                            'Helping Dutch startup strategize and execute market entry into Indonesia, from 0 to 1',
+                        labels: [
+                            { title: 'Performance Marketing' },
+                            { title: 'Market-Entry' },
+                            { title: 'Web Development' },
+                        ],
+                    },
+                ]}
+            />
+            <Process
+                subtitle="Our Process"
+                title="Real Growth Is Not Luck, It's Designed"
+                description="Every strategy we build is rooted in Data, Creativity, and Technology"
+                showAboutSection={true}
+                aboutLink={{
+                    url: '/about-us',
+                    title: 'About us',
+                    target: '_self',
+                }}
+            />
+        </>
+    )
 }

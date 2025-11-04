@@ -1,0 +1,46 @@
+#header {
+    @apply sticky top-0 z-50 w-full bg-white lg:bg-white/70 backdrop-blur-sm py-3 border-b border-neutral-100 lg:py-6;
+    .primary-menu {
+        @apply flex gap-6 items-center h-full;
+        li {
+            &:hover {
+                a::after {
+                    @apply w-full;
+                }
+            }
+            a {
+                @apply relative;
+                &::after {
+                    content: '';
+                    @apply absolute -z-10 bottom-px block w-0 h-1 bg-secondary transition-all duration-300 ease-in-out;
+                }
+            }
+        }
+    }
+    .mobile-btn {
+        @apply bg-neutral-100 text-primary;
+        &.opened {
+            @apply bg-primary text-white;
+            .is-open {
+                @apply hidden;
+            }
+            .is-closed {
+                @apply block;
+            }
+        }
+        .is-closed {
+            @apply hidden;
+        }
+    }
+}
+
+/* Footer */
+#footer {
+    @apply bg-black text-white;
+    .footer-top {
+        @apply py-10 xl:py-20;
+    }
+    .footer-main {
+        @apply py-10 xl:pt-1 xl:pb-12;
+    }
+}
