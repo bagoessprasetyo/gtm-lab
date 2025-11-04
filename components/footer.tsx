@@ -7,7 +7,6 @@ import { Icon } from '@iconify/react'
 import { Button } from './ui/button'
 import 'swiper/css'
 
-import Logo from '../public/logo-white.svg'
 import ImgFooter1 from '../public/gif/img-footer-1.gif'
 import ImgFooter2 from '../public/gif/img-footer-2.gif'
 import ImgFooter3 from '../public/gif/img-footer-3.gif'
@@ -152,7 +151,7 @@ export default function Footer() {
                     <div className="flex items-center w-full justify-between border-y-2 border-neutral-900 py-8">
                         <div>
                             <Image
-                                src={Logo}
+                                src="/logo-white.svg"
                                 alt="GTMLab"
                                 width={160}
                                 height={40}

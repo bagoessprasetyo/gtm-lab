@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { Button } from './ui/button'
 import { Icon } from '@iconify/react'
 
-import Logo from '../public/logo.svg'
 
 const headerMenu = [
     {
@@ -50,7 +49,7 @@ export default function Header() {
                     <div>
                         <Link href="/" onClick={closeMobileMenu}>
                             <Image
-                                src={Logo}
+                                src="/logo.svg"
                                 alt="GTMLab"
                                 width={160}
                                 height={40}
