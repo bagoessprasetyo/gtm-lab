@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { gsap } from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { BlurFade } from '@/components/ui/blur-fade'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
@@ -259,30 +260,27 @@ export default function Services({
 
     return (
         <div className={cn('py-10 box box-services lg:py-20', className)}>
-            <div className="container flex flex-col gap-6 px-4 mx-auto lg:gap-20 lg:px-0">
+            <div className="container flex flex-col gap-6 px-4 mx-auto lg:gap-20 xl:px-0">
                 <div className="flex flex-col w-full gap-8 lg:max-w-3xl">
                     <div className="flex flex-col gap-4 header-area">
                         {subtitle && (
-                            <div
-                                className="flex items-center gap-1.5 lg:gap-4 font-semibold uppercase text-[12px] lg:text-base entry-subtitle"
-                                data-aos="fade-in"
-                                data-aos-delay="0">
-                                <span className="w-2 h-2 rounded-full lg:w-4 lg:h-4 bg-primary"></span>
-                                {subtitle}
-                            </div>
+                            <BlurFade delay={0.25} inView>
+                                <div className="flex items-center gap-1.5 lg:gap-4 font-semibold uppercase text-[12px] lg:text-base entry-subtitle">
+                                    <span className="w-2 h-2 rounded-full lg:w-4 lg:h-4 bg-primary"></span>
+                                    {subtitle}
+                                </div>
+                            </BlurFade>
                         )}
-                        <h1
-                            className="text-[32px] font-medium capitalize entry-title lg:text-5xl"
-                            data-aos="fade-in"
-                            data-aos-delay="100">
-                            {title}
-                        </h1>
-                        <div
-                            className="mt-2 entry-description"
-                            data-aos="fade-in"
-                            data-aos-delay="150">
-                            {description}
-                        </div>
+                        <BlurFade delay={0.25 * 2} inView>
+                            <h1 className="text-[32px] font-medium capitalize entry-title lg:text-5xl">
+                                {title}
+                            </h1>
+                        </BlurFade>
+                        <BlurFade delay={0.25 * 2} inView>
+                            <div className="mt-2 entry-description">
+                                {description}
+                            </div>
+                        </BlurFade>
                     </div>
                 </div>
 
@@ -360,42 +358,45 @@ export default function Services({
                     {/* Mobile: Simple Cards */}
                     <div className="flex flex-col gap-4 lg:hidden">
                         {services.map((service, index) => (
-                            <div
-                                key={index}
-                                className="p-6 bg-tertiary border border-black rounded-3xl min-h-[400px] flex flex-col"
-                                data-aos="fade-in"
-                                data-aos-delay="250">
-                                <div className="flex flex-col justify-between w-full gap-6 flex-1">
-                                    <div className="space-y-4">
-                                        <div className="flex items-center gap-2.5 font-medium text-lg">
-                                            <span className="w-2.5 h-2.5 rounded-full bg-primary shrink-0"></span>
-                                            {service.title}
+                            <BlurFade
+                                delay={0.25 * 2 + index * 0.05}
+                                inView
+                                key={index}>
+                                <div className="p-6 bg-tertiary border border-black rounded-3xl min-h-[400px] flex flex-col">
+                                    <div className="flex flex-col justify-between w-full gap-6 flex-1">
+                                        <div className="space-y-4">
+                                            <div className="flex items-center gap-2.5 font-medium text-lg">
+                                                <span className="w-2.5 h-2.5 rounded-full bg-primary shrink-0"></span>
+                                                {service.title}
+                                            </div>
+                                            <div className="text-xs font-bold uppercase tracking-wide">
+                                                {service.description}
+                                            </div>
+                                            <div className="text-sm leading-relaxed">
+                                                {service.content}
+                                            </div>
                                         </div>
-                                        <div className="text-xs font-bold uppercase tracking-wide">
-                                            {service.description}
-                                        </div>
-                                        <div className="text-sm leading-relaxed">
-                                            {service.content}
-                                        </div>
-                                    </div>
 
-                                    <div className="space-y-3">
-                                        <div className="text-xs font-semibold uppercase tracking-wide">
-                                            What&apos;s inside
+                                        <div className="space-y-3">
+                                            <div className="text-xs font-semibold uppercase tracking-wide">
+                                                What&apos;s inside
+                                            </div>
+                                            <ul className="space-y-3">
+                                                {service.items.map(
+                                                    (item, idx) => (
+                                                        <li
+                                                            key={idx}
+                                                            className="text-sm font-medium flex items-start gap-2.5 leading-relaxed">
+                                                            <span className="w-1.5 h-1.5 bg-primary mt-1.5 shrink-0 block"></span>
+                                                            {item}
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
                                         </div>
-                                        <ul className="space-y-3">
-                                            {service.items.map((item, idx) => (
-                                                <li
-                                                    key={idx}
-                                                    className="text-sm font-medium flex items-start gap-2.5 leading-relaxed">
-                                                    <span className="w-1.5 h-1.5 bg-primary mt-1.5 shrink-0 block"></span>
-                                                    {item}
-                                                </li>
-                                            ))}
-                                        </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </BlurFade>
                         ))}
                     </div>
                 </div>

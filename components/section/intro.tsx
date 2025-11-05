@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Icon } from '@iconify/react'
 import { Button } from '@/components/ui/button'
+import { BlurFade } from '@/components/ui/blur-fade'
 import { cn } from '@/lib/utils'
 
 interface IntroLink {
@@ -106,96 +107,90 @@ export default function Intro({
                 'py-10 box box-intro bg-neutral-50 lg:py-20',
                 className
             )}>
-            <div className="container flex flex-col gap-4 px-4 mx-auto lg:gap-10 lg:px-0">
+            <div className="container flex flex-col gap-4 px-4 mx-auto xl:gap-10 xl:px-0">
                 <div className="flex flex-col w-full gap-8">
                     <div className="flex flex-col gap-4 header-area">
                         {subtitle && (
-                            <div
-                                className="flex items-center gap-1.5 lg:gap-4 font-semibold uppercase text-[12px] lg:text-base entry-subtitle"
-                                data-aos="fade-in"
-                                data-aos-delay="0">
-                                <span className="w-2 h-2 rounded-full lg:w-4 lg:h-4 bg-primary"></span>
-                                {subtitle}
-                            </div>
+                            <BlurFade delay={0.25} inView>
+                                <div className="flex items-center gap-1.5 lg:gap-4 font-semibold uppercase text-[12px] lg:text-base entry-subtitle">
+                                    <span className="w-2 h-2 rounded-full lg:w-4 lg:h-4 bg-primary"></span>
+                                    {subtitle}
+                                </div>
+                            </BlurFade>
                         )}
 
                         {typingText ? (
-                            <h1
-                                className="text-xl font-medium leading-snug entry-title lg:text-5xl"
-                                data-aos="fade-in"
-                                data-aos-delay="250">
-                                <div
-                                    ref={typingRef}
-                                    className="typing-text"></div>
-                            </h1>
+                            <BlurFade delay={0.25 * 2} inView>
+                                <h1 className="text-xl font-medium leading-snug entry-title lg:text-5xl">
+                                    <div
+                                        ref={typingRef}
+                                        className="typing-text"></div>
+                                </h1>
+                            </BlurFade>
                         ) : (
                             title && (
-                                <h1
-                                    className="text-xl font-medium leading-snug entry-title lg:text-5xl"
-                                    data-aos="fade-in"
-                                    data-aos-delay="250">
-                                    {title}
-                                </h1>
+                                <BlurFade delay={0.25 * 2} inView>
+                                    <h1 className="text-xl font-medium leading-snug entry-title lg:text-5xl">
+                                        {title}
+                                    </h1>
+                                </BlurFade>
                             )
                         )}
                     </div>
                 </div>
 
                 {clients.length > 0 && (
-                    <div
-                        className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-6"
-                        data-aos="fade-in"
-                        data-aos-delay="250">
-                        {clients.map((client, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center justify-center">
-                                <Image
-                                    src={`/logo-client/${client.img}`}
-                                    alt={client.title}
-                                    width={200}
-                                    height={100}
-                                    className="w-full h-auto"
-                                />
-                            </div>
-                        ))}
-                    </div>
+                    <BlurFade delay={0.25} inView>
+                        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-6">
+                            {clients.map((client, index) => (
+                                <div
+                                    key={index}
+                                    className="flex items-center justify-center">
+                                    <Image
+                                        src={`/logo-client/${client.img}`}
+                                        alt={client.title}
+                                        width={200}
+                                        height={100}
+                                        className="w-full h-auto"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </BlurFade>
                 )}
 
                 {(description || link) && (
                     <div className="space-y-6 lg:space-y-8 lg:max-w-4xl">
                         {description && (
-                            <div
-                                className="entry-description font-medium text-xl lg:text-[32px]"
-                                data-aos="fade-in"
-                                data-aos-delay="250">
-                                {description}
-                            </div>
+                            <BlurFade delay={0.25} inView>
+                                <div className="entry-description font-medium text-xl lg:text-[32px]">
+                                    {description}
+                                </div>
+                            </BlurFade>
                         )}
 
                         {link && (
-                            <div
-                                className="flex entry-main-button"
-                                data-aos="fade-in"
-                                data-aos-delay="250">
-                                <Button size="lg" asChild>
-                                    <Link
-                                        href={link.url}
-                                        target={link.target || '_self'}
-                                        rel={
-                                            link.target === '_blank'
-                                                ? 'noopener noreferrer'
-                                                : undefined
-                                        }>
-                                        {link.title}
-                                        <Icon
-                                            icon="heroicons:arrow-right-20-solid"
-                                            width="20"
-                                            height="20"
-                                        />
-                                    </Link>
-                                </Button>
-                            </div>
+                            <BlurFade delay={0.25 * 2} inView>
+                                <div className="flex entry-main-button">
+                                    <Button size="lg" asChild>
+                                        <Link
+                                            href={link.url}
+                                            target={link.target || '_self'}
+                                            rel={
+                                                link.target === '_blank'
+                                                    ? 'noopener noreferrer'
+                                                    : undefined
+                                            }>
+                                            {link.title}
+                                            <Icon
+                                                icon="heroicons:arrow-right-20-solid"
+                                                width="20"
+                                                height="20"
+                                            />
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </BlurFade>
                         )}
                     </div>
                 )}
