@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { BlurFade } from '@/components/ui/blur-fade'
 import { cn } from '@/lib/utils'
 import { StaticImageData } from 'next/image'
 
@@ -97,24 +98,24 @@ export default function AboutTeam({
                 {/* Header */}
                 <div className="flex flex-col items-center max-w-3xl gap-4 text-center header-area">
                     {subtitle && (
-                        <div
-                            className="flex items-center gap-4 font-semibold uppercase entry-subtitle"
-                            data-aos="fade-in">
-                            <span className="w-4 h-4 rounded-full bg-primary"></span>
-                            {subtitle}
-                        </div>
+                        <BlurFade delay={0.25} inView>
+                            <div className="flex items-center gap-4 font-semibold uppercase entry-subtitle">
+                                <span className="w-4 h-4 rounded-full bg-primary"></span>
+                                {subtitle}
+                            </div>
+                        </BlurFade>
                     )}
-                    <h1
-                        className="text-4xl font-medium entry-title lg:text-5xl"
-                        data-aos="fade-in">
-                        {title}
-                    </h1>
+                    <BlurFade delay={0.25 * 2} inView>
+                        <h1 className="text-4xl font-medium entry-title lg:text-5xl">
+                            {title}
+                        </h1>
+                    </BlurFade>
                     {description && (
-                        <div
-                            className="mt-2 entry-description"
-                            data-aos="fade-in">
-                            {description}
-                        </div>
+                        <BlurFade delay={0.25 * 3} inView>
+                            <div className="mt-2 entry-description">
+                                {description}
+                            </div>
+                        </BlurFade>
                     )}
                 </div>
 
@@ -122,38 +123,40 @@ export default function AboutTeam({
                 {teamMembers.length > 0 && (
                     <div className="w-full space-y-1">
                         {/* Top 2 Members */}
-                        <div
-                            className="flex justify-center gap-1"
-                            data-aos="fade-in">
-                            {topMembers.map((member, index) => (
-                                <div key={index}>
-                                    <Image
-                                        src={member.image}
-                                        alt={member.name}
-                                        width={240}
-                                        height={240}
-                                        className="w-full lg:max-w-60"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Desktop: Remaining members in rows of 7 */}
-                        {desktopChunks.map((chunk, chunkIndex) => (
-                            <div
-                                key={`desktop-${chunkIndex}`}
-                                className="items-start self-stretch hidden w-full gap-1 lg:flex"
-                                data-aos="fade-in">
-                                {chunk.map((member, memberIndex) => (
-                                    <div key={memberIndex}>
+                        <BlurFade delay={0.25} inView>
+                            <div className="flex justify-center gap-1">
+                                {topMembers.map((member, index) => (
+                                    <div key={index}>
                                         <Image
                                             src={member.image}
                                             alt={member.name}
-                                            className="flex max-w-full"
+                                            width={240}
+                                            height={240}
+                                            className="w-full lg:max-w-60"
                                         />
                                     </div>
                                 ))}
                             </div>
+                        </BlurFade>
+
+                        {/* Desktop: Remaining members in rows of 7 */}
+                        {desktopChunks.map((chunk, chunkIndex) => (
+                            <BlurFade
+                                delay={0.25}
+                                inView
+                                key={`desktop-${chunkIndex}`}>
+                                <div className="items-start self-stretch hidden w-full gap-1 lg:flex">
+                                    {chunk.map((member, memberIndex) => (
+                                        <div key={memberIndex}>
+                                            <Image
+                                                src={member.image}
+                                                alt={member.name}
+                                                className="flex max-w-full"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            </BlurFade>
                         ))}
 
                         {/* Mobile: Remaining members in rows of 4 */}
@@ -162,32 +165,35 @@ export default function AboutTeam({
                             const totalRemaining = remainingMembers.length
 
                             return (
-                                <div
-                                    key={`mobile-${chunkIndex}`}
-                                    className="flex items-start self-stretch justify-center w-full gap-1 lg:hidden">
-                                    {chunk.map((member, memberIndex) => {
-                                        const globalIndex =
-                                            startIndex + memberIndex + 1
-                                        const isLastItem =
-                                            globalIndex === totalRemaining
+                                <BlurFade
+                                    delay={0.25}
+                                    inView
+                                    key={`mobile-${chunkIndex}`}>
+                                    <div className="flex items-start self-stretch justify-center w-full gap-1 lg:hidden">
+                                        {chunk.map((member, memberIndex) => {
+                                            const globalIndex =
+                                                startIndex + memberIndex + 1
+                                            const isLastItem =
+                                                globalIndex === totalRemaining
 
-                                        return (
-                                            <div
-                                                key={memberIndex}
-                                                className={cn(
-                                                    '',
-                                                    isLastItem &&
-                                                        'max-w-20 md:max-w-44'
-                                                )}>
-                                                <Image
-                                                    src={member.image}
-                                                    alt={member.name}
-                                                    className="flex lg:max-w-full"
-                                                />
-                                            </div>
-                                        )
-                                    })}
-                                </div>
+                                            return (
+                                                <div
+                                                    key={memberIndex}
+                                                    className={cn(
+                                                        '',
+                                                        isLastItem &&
+                                                            'max-w-20 md:max-w-44'
+                                                    )}>
+                                                    <Image
+                                                        src={member.image}
+                                                        alt={member.name}
+                                                        className="flex lg:max-w-full"
+                                                    />
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                </BlurFade>
                             )
                         })}
                     </div>

@@ -98,8 +98,8 @@ export default function Footer() {
 
     return (
         <footer id="footer">
-            <div className="footer-top w-full relative overflow-hidden py-10 lg:py-20 lg:min-h-[560px]">
-                <div className="flex flex-col justify-between gap-10 container mx-auto px-4 lg:px-0 xl:grid xl:grid-cols-12 xl:gap-20">
+            <div className="footer-top w-full relative overflow-hidden py-10 lg:py-20 xl:min-h-[560px]">
+                <div className="flex flex-col justify-between gap-10 container mx-auto px-4 xl:px-0 xl:grid xl:grid-cols-12 xl:gap-20">
                     <div className="flex flex-col gap-6 xl:col-span-5">
                         <div className="font-medium text-[32px] lg:text-5xl">
                             Ready to engineer your next stage of growth?
@@ -110,7 +110,7 @@ export default function Footer() {
                         </div>
                         <div className="mt-2.5">
                             <Button size="lg" variant="destructive" asChild>
-                                <Link href="/contact-us">
+                                <Link href="/contact">
                                     Book a Strategy Call
                                     <Icon
                                         icon="heroicons:arrow-right-16-solid"
@@ -122,7 +122,7 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="xl:col-span-7">
-                        <div className="max-w-6xl lg:absolute">
+                        <div className="max-w-6xl xl:absolute">
                             <div className="swiper footer-carousel">
                                 <div className="swiper-wrapper">
                                     {footerCarousel.map((image, index) => (

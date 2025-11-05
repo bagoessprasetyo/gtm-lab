@@ -1,8 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Icon } from '@iconify/react'
-import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+
+import { Button } from '@/components/ui/button'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 interface ServiceLink {
     url: string
@@ -15,12 +21,17 @@ interface CoreServiceItem {
     items: string[]
 }
 
+interface Platform {
+    name: string
+    logo: string
+}
+
 interface ServiceItem {
     subtitle?: string
     title?: string
     shortDescription?: string
     description?: string
-    platforms: string[]
+    platforms: Platform[]
     coreServices: CoreServiceItem[]
 }
 
@@ -42,11 +53,11 @@ const defaultServices: ServiceItem[] = [
         description:
             'We design and run campaigns that reach the right audience, engage them at every touchpoint, and drive conversions across your funnel.',
         platforms: [
-            'logo-google-ads.svg',
-            'logo-meta.svg',
-            'logo-linkedin.svg',
-            'logo-mailchimp.svg',
-            'logo-hubspot.svg',
+            { name: 'Google Ads', logo: 'logo-google-ads.svg' },
+            { name: 'Meta', logo: 'logo-meta.svg' },
+            { name: 'LinkedIn', logo: 'logo-linkedin.svg' },
+            { name: 'Mailchimp', logo: 'logo-mailchimp.svg' },
+            { name: 'HubSpot', logo: 'logo-hubspot.svg' },
         ],
         coreServices: [
             {
@@ -88,11 +99,11 @@ const defaultServices: ServiceItem[] = [
         description:
             'We craft messaging, visuals, and experiences that resonate with your audience and turn attention into trust.',
         platforms: [
-            'logo-figma.svg',
-            'logo-adobe.svg',
-            'logo-wordpress.svg',
-            'logo-webflow.svg',
-            'logo-canva.svg',
+            { name: 'Figma', logo: 'logo-figma.svg' },
+            { name: 'Adobe', logo: 'logo-adobe.svg' },
+            { name: 'WordPress', logo: 'logo-wordpress.svg' },
+            { name: 'Webflow', logo: 'logo-webflow.svg' },
+            { name: 'Canva', logo: 'logo-canva.svg' },
         ],
         coreServices: [
             {
@@ -113,12 +124,12 @@ const defaultServices: ServiceItem[] = [
         description:
             'We design and integrate a growth stack that aligns marketing, sales, and product, turning insights into automated, scalable operations.',
         platforms: [
-            'logo-hubspot.svg',
-            'logo-sleekflow.svg',
-            'logo-n8n.svg',
-            'logo-whatsapp.svg',
-            'logo-gtm.svg',
-            'logo-big-query.svg',
+            { name: 'HubSpot', logo: 'logo-hubspot.svg' },
+            { name: 'SleekFlow', logo: 'logo-sleekflow.svg' },
+            { name: 'n8n', logo: 'logo-n8n.svg' },
+            { name: 'WhatsApp', logo: 'logo-whatsapp.svg' },
+            { name: 'Google Tag Manager', logo: 'logo-gtm.svg' },
+            { name: 'BigQuery', logo: 'logo-big-query.svg' },
         ],
         coreServices: [
             {
@@ -141,13 +152,13 @@ const defaultServices: ServiceItem[] = [
         description:
             'We use AI to enhance creative testing, optimize campaigns, and automate workflows for smarter growth.',
         platforms: [
-            'logo-chatgpt.svg',
-            'logo-google-analytics.svg',
-            'logo-n8n.svg',
-            'logo-midjourney.svg',
-            'logo-replit.svg',
-            'logo-kling.svg',
-            'logo-trae.svg',
+            { name: 'ChatGPT', logo: 'logo-chatgpt.svg' },
+            { name: 'Google Analytics', logo: 'logo-google-analytics.svg' },
+            { name: 'n8n', logo: 'logo-n8n.svg' },
+            { name: 'Midjourney', logo: 'logo-midjourney.svg' },
+            { name: 'Replit', logo: 'logo-replit.svg' },
+            { name: 'Kling AI', logo: 'logo-kling.svg' },
+            { name: 'Trae', logo: 'logo-trae.svg' },
         ],
         coreServices: [
             {
@@ -303,20 +314,24 @@ export default function ServicesOverall({
                                     <div className="flex flex-wrap gap-2">
                                         {service.platforms.map(
                                             (platform, platformIndex) => (
-                                                <div
-                                                    key={platformIndex}
-                                                    className="flex items-center justify-center w-16 h-16 border rounded-full border-neutral-100">
-                                                    <Image
-                                                        src={`/platform/${platform}`}
-                                                        alt={platform.replace(
-                                                            /logo-|\.svg/g,
-                                                            ''
-                                                        )}
-                                                        width={40}
-                                                        height={40}
-                                                        className="w-auto h-auto"
-                                                    />
-                                                </div>
+                                                <Tooltip key={platformIndex}>
+                                                    <TooltipTrigger asChild>
+                                                        <div className="flex items-center justify-center w-16 h-16 border rounded-full border-neutral-100 cursor-pointer hover:border-neutral-300 hover:scale-110 hover:shadow-lg/5 transition-colors">
+                                                            <Image
+                                                                src={`/platform/${platform.logo}`}
+                                                                alt={
+                                                                    platform.name
+                                                                }
+                                                                width={40}
+                                                                height={40}
+                                                                className="w-auto h-auto"
+                                                            />
+                                                        </div>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent side="bottom">
+                                                        <p>{platform.name}</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
                                             )
                                         )}
                                     </div>

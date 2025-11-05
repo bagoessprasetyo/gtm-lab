@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { BlurFade } from '@/components/ui/blur-fade'
 import { cn } from '@/lib/utils'
 
 interface ItemList {
@@ -36,66 +37,67 @@ export default function About({
 }: AboutProps) {
     return (
         <div className={cn('py-10 box lg:py-20', className)}>
-            <div className="container flex flex-col items-center gap-10 px-4 mx-auto lg:px-0">
+            <div className="container flex flex-col items-center gap-10 px-4 mx-auto xl:px-0">
                 <div className="flex flex-col items-center max-w-3xl gap-4 text-center header-area">
                     {subtitle && (
-                        <div
-                            className="flex items-center gap-4 font-semibold uppercase entry-subtitle"
-                            data-aos="fade-in"
-                            data-aos-delay="250">
-                            <span className="w-4 h-4 rounded-full bg-primary"></span>
-                            {subtitle}
-                        </div>
+                        <BlurFade delay={0.25} inView>
+                            <div className="flex items-center gap-4 font-semibold uppercase entry-subtitle">
+                                <span className="w-4 h-4 rounded-full bg-primary"></span>
+                                {subtitle}
+                            </div>
+                        </BlurFade>
                     )}
-                    <h1
-                        className="text-4xl font-medium entry-title lg:text-5xl"
-                        data-aos="fade-in">
-                        {title}
-                    </h1>
+                    <BlurFade delay={0.25 * 2} inView>
+                        <h1 className="text-4xl font-medium entry-title lg:text-5xl">
+                            {title}
+                        </h1>
+                    </BlurFade>
                     {description && (
-                        <div
-                            className="mt-2 entry-description"
-                            data-aos="fade-in">
-                            {description}
-                        </div>
+                        <BlurFade delay={0.25 * 3} inView>
+                            <div className="mt-2 entry-description">
+                                {description}
+                            </div>
+                        </BlurFade>
                     )}
                 </div>
 
                 {itemLists && itemLists.length > 0 && (
-                    <div className="w-full lg:max-w-6xl" data-aos="fade-in">
-                        <div className="flex flex-col overflow-hidden border rounded-lg border-neutral-200 lg:grid lg:grid-cols-12">
-                            <div className="img-wrap lg:col-span-7">
-                                {image ? (
-                                    <Image
-                                        src={image}
-                                        alt={imageAlt}
-                                        width={800}
-                                        height={600}
-                                        className="object-cover w-full h-full"
-                                    />
-                                ) : (
-                                    <div className="w-full h-[290px] bg-[#F1F1FE]"></div>
-                                )}
-                            </div>
-                            <div className="flex flex-col justify-center p-4 space-y-3 item-content lg:py-10 lg:px-16 lg:col-span-5">
-                                <div className="font-semibold uppercase entry-title">
-                                    {itemListTitle}
+                    <BlurFade delay={0.25 * 4} inView>
+                        <div className="w-full lg:max-w-6xl">
+                            <div className="flex flex-col overflow-hidden border rounded-lg border-neutral-200 lg:grid lg:grid-cols-12">
+                                <div className="img-wrap lg:col-span-7">
+                                    {image ? (
+                                        <Image
+                                            src={image}
+                                            alt={imageAlt}
+                                            width={800}
+                                            height={600}
+                                            className="object-cover w-full h-full"
+                                        />
+                                    ) : (
+                                        <div className="w-full h-[290px] bg-[#F1F1FE]"></div>
+                                    )}
                                 </div>
-                                <ul className="space-y-3">
-                                    {itemLists.map((item, index) => (
-                                        <li
-                                            key={index}
-                                            className="flex items-center gap-4">
-                                            <div>
-                                                <span className="flex w-3 h-3 rounded-full bg-primary"></span>
-                                            </div>
-                                            {item.title}
-                                        </li>
-                                    ))}
-                                </ul>
+                                <div className="flex flex-col justify-center p-4 space-y-3 item-content lg:py-10 lg:px-16 lg:col-span-5">
+                                    <div className="font-semibold uppercase entry-title">
+                                        {itemListTitle}
+                                    </div>
+                                    <ul className="space-y-3">
+                                        {itemLists.map((item, index) => (
+                                            <li
+                                                key={index}
+                                                className="flex items-center gap-4">
+                                                <div>
+                                                    <span className="flex w-3 h-3 rounded-full bg-primary"></span>
+                                                </div>
+                                                {item.title}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </BlurFade>
                 )}
             </div>
         </div>

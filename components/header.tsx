@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { Button } from './ui/button'
 import { Icon } from '@iconify/react'
 
-
 const headerMenu = [
     {
         title: 'Our Lab',
@@ -45,7 +44,7 @@ export default function Header() {
             <header
                 id="header"
                 className="sticky top-0 z-50 w-full bg-white lg:bg-white/70 backdrop-blur-sm">
-                <div className="container flex items-center justify-between gap-3 px-4 mx-auto lg:px-0">
+                <div className="container flex items-center justify-between gap-3 px-4 mx-auto xl:px-0">
                     <div>
                         <Link href="/" onClick={closeMobileMenu}>
                             <Image

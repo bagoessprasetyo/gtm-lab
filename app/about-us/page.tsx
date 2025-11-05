@@ -11,11 +11,11 @@ export default function AboutUsPage() {
     return (
         <>
             <Hero
-                title="We're Builders Who Get It"
-                description="We're not just marketers — we're founders, operators, and problem-solvers who've been in the trenches. We know what it takes to grow a business because we've done it ourselves."
+                title="We’ve been where you are, building from scratch, moving fast with limited resources"
+                description="Some of us were founders, others led growth or product at high-growth companies."
                 link={{
                     url: '/contact',
-                    title: 'Work With Us',
+                    title: 'Book a Strategy Call',
                     target: '_self',
                 }}
             />
