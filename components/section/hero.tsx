@@ -44,14 +44,14 @@ export default function Hero({
     return (
         <div className={cn('py-10 box box-banner lg:py-20', className)}>
             <div className="container flex flex-col items-center gap-6 px-4 mx-auto xl:gap-10 xl:px-0">
-                <div className="flex flex-col items-center gap-4 px-4 text-center lg:gap-6 header-area lg:px-0 lg:max-w-6xl">
-                    {subtitle && (
+                <div className="flex flex-col items-center gap-4 text-center lg:gap-6 header-area lg:px-0 lg:max-w-6xl">
+                    {/* {subtitle && (
                         <BlurFade delay={0.25} inView>
                             <div className="hidden px-6 py-2 text-base leading-snug border rounded-full md:flex entry-subtitle border-neutral-100 text-neutral-700">
                                 {subtitle}
                             </div>
                         </BlurFade>
-                    )}
+                    )} */}
 
                     <BlurFade delay={0.25} inView>
                         <h1 className={titleClass}>{title}</h1>
@@ -89,24 +89,24 @@ export default function Hero({
                         </div>
                     </BlurFade>
                 )}
-
-                {video && variant === 'homepage' && (
-                    <BlurFade delay={0.25} inView>
-                        <div className="w-full">
-                            <video
-                                className="w-full rounded-xl"
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                poster={video.poster}>
-                                <source src={video.src} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </BlurFade>
-                )}
             </div>
+
+            {video && variant === 'homepage' && (
+                <BlurFade delay={0.25} inView>
+                    <div className="w-full mt-6 lg:mt-10 lg:container lg:mx-auto">
+                        <video
+                            className="w-full rounded-xl"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            poster={video.poster}>
+                            <source src={video.src} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </BlurFade>
+            )}
         </div>
     )
 }
