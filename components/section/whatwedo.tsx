@@ -116,7 +116,7 @@ export default function WhatWeDo({
                     )}
 
                     {itemLists.length > 0 && (
-                        <BlurFade delay={0.25} inView>
+                        <BlurFade delay={0.25 * 4} inView>
                             <div className="space-y-8">
                                 {itemLists.map((item, index) => (
                                     <div
@@ -140,21 +140,20 @@ export default function WhatWeDo({
 
                 {video && (
                     <div className="hidden w-full lg:flex lg:col-span-6">
-                        <div
-                            className="w-full"
-                            data-aos="fade-in"
-                            data-aos-delay="1000">
-                            <video
-                                className="rounded-xl"
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                poster={video.poster}>
-                                <source src={video.src} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                        <BlurFade delay={0.25 * 2} inView>
+                            <div className="w-full">
+                                <video
+                                    className="rounded-xl"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    poster={video.poster}>
+                                    <source src={video.src} type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </BlurFade>
                     </div>
                 )}
             </div>

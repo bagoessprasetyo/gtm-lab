@@ -107,9 +107,7 @@ export default function Works({
                                 </BlurFade>
                             )}
                             <BlurFade delay={0.25 * 2} inView>
-                                <h1
-                                    className="text-[32px] font-medium entry-title lg:text-5xl"
-                                    data-aos="fade-in">
+                                <h1 className="text-[32px] font-medium entry-title lg:text-5xl">
                                     {title}
                                 </h1>
                             </BlurFade>

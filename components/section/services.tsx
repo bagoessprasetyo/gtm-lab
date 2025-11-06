@@ -359,7 +359,7 @@ export default function Services({
                     <div className="flex flex-col gap-4 lg:hidden">
                         {services.map((service, index) => (
                             <BlurFade
-                                delay={0.25 * 2 + index * 0.05}
+                                delay={0.25 + index * 0.05}
                                 inView
                                 key={index}>
                                 <div className="p-6 bg-tertiary border border-black rounded-3xl min-h-[400px] flex flex-col">

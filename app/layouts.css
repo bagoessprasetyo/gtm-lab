@@ -37,9 +37,6 @@
 /* Footer */
 #footer {
     @apply bg-black text-white;
-    .footer-top {
-        @apply py-10 xl:py-20;
-    }
     .footer-main {
         @apply py-10 xl:pt-1 xl:pb-12;
     }

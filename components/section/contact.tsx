@@ -41,9 +41,7 @@ export default function Contact({
                 <div className="lg:w-[384px] self-start">
                     <div className="sticky top-28">
                         <BlurFade delay={0.25} inView>
-                            <h1
-                                className="text-4xl font-medium lg:text-5xl"
-                                data-aos="fade-in">
+                            <h1 className="text-4xl font-medium lg:text-5xl">
                                 {title}
                             </h1>
                         </BlurFade>
