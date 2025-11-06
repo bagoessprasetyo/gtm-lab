@@ -53,14 +53,14 @@ export default function WhatWeDo({
                             </BlurFade>
                         )}
 
-                        <BlurFade delay={0.25 * 2} inView>
+                        <BlurFade delay={0.25} inView>
                             <h1 className="text-4xl font-medium entry-title lg:text-5xl">
                                 {title}
                             </h1>
                         </BlurFade>
 
                         {description && (
-                            <BlurFade delay={0.25 * 3} inView>
+                            <BlurFade delay={0.25} inView>
                                 <div className="mt-2 entry-description">
                                     {description}
                                 </div>
@@ -68,7 +68,7 @@ export default function WhatWeDo({
                         )}
 
                         {link && (
-                            <BlurFade delay={0.25 * 4} inView>
+                            <BlurFade delay={0.25} inView>
                                 <div className="flex mt-2 entry-main-button lg:mt-4">
                                     <Button size="lg" asChild>
                                         <Link
@@ -116,7 +116,7 @@ export default function WhatWeDo({
                     )}
 
                     {itemLists.length > 0 && (
-                        <BlurFade delay={0.25 * 4} inView>
+                        <BlurFade delay={0.25} inView>
                             <div className="space-y-8">
                                 {itemLists.map((item, index) => (
                                     <div
@@ -140,7 +140,7 @@ export default function WhatWeDo({
 
                 {video && (
                     <div className="hidden w-full lg:flex lg:col-span-6">
-                        <BlurFade delay={0.25 * 2} inView>
+                        <BlurFade delay={0.25} inView>
                             <div className="w-full">
                                 <video
                                     className="rounded-xl"

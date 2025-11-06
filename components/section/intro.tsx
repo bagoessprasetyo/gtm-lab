@@ -120,7 +120,7 @@ export default function Intro({
                         )}
 
                         {typingText ? (
-                            <BlurFade delay={0.25 * 2} inView>
+                            <BlurFade delay={0.25} inView>
                                 <h1 className="text-xl font-medium leading-snug entry-title lg:text-5xl">
                                     <div
                                         ref={typingRef}
@@ -129,7 +129,7 @@ export default function Intro({
                             </BlurFade>
                         ) : (
                             title && (
-                                <BlurFade delay={0.25 * 2} inView>
+                                <BlurFade delay={0.25} inView>
                                     <h1 className="text-xl font-medium leading-snug entry-title lg:text-5xl">
                                         {title}
                                     </h1>
@@ -170,7 +170,7 @@ export default function Intro({
                         )}
 
                         {link && (
-                            <BlurFade delay={0.25 * 2} inView>
+                            <BlurFade delay={0.25} inView>
                                 <div className="flex entry-main-button">
                                     <Button size="lg" asChild>
                                         <Link
