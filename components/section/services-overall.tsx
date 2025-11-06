@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react'
 import { cn } from '@/lib/utils'
 
 import { Button } from '@/components/ui/button'
+import { BlurFade } from '@/components/ui/blur-fade'
 import {
     Tooltip,
     TooltipContent,
@@ -191,31 +192,23 @@ export default function ServicesOverall({
                 <div className="w-full flex flex-col gap-8 lg:max-w-[590px]">
                     <div className="flex flex-col gap-4 header-area">
                         {subtitle && (
-                            <div
-                                className="flex items-center gap-4 font-semibold uppercase entry-subtitle"
-                                data-aos="fade-in">
+                            <div className="flex items-center gap-4 font-semibold uppercase entry-subtitle">
                                 <span className="w-4 h-4 rounded-full bg-primary"></span>
                                 {subtitle}
                             </div>
                         )}
                         {title && (
-                            <h1
-                                className="text-4xl font-medium entry-title lg:text-5xl"
-                                data-aos="fade-in">
+                            <h1 className="text-4xl font-medium entry-title lg:text-5xl">
                                 {title}
                             </h1>
                         )}
                         {description && (
-                            <div
-                                className="mt-2 entry-description"
-                                data-aos="fade-in">
+                            <div className="mt-2 entry-description">
                                 {description}
                             </div>
                         )}
                         {link && (
-                            <div
-                                className="flex flex-col items-start gap-4 mt-4 entry-main-button"
-                                data-aos="fade-in">
+                            <div className="flex flex-col items-start gap-4 mt-4 entry-main-button">
                                 <Button size="lg" asChild>
                                     <Link
                                         href={link.url}
@@ -241,10 +234,11 @@ export default function ServicesOverall({
                 <div className="w-full lg:col-span-6">
                     <div className="flex flex-col">
                         {services.map((service, index) => (
-                            <div
+                            <BlurFade
                                 key={index}
-                                className="flex flex-col border-b border-r border-neutral-200 first:border-t lg:grid lg:grid-cols-12 lg:gap-8"
-                                data-aos="fade-in">
+                                delay={0.25}
+                                inView
+                                className="flex flex-col border-b border-r border-neutral-200 first:border-t lg:grid lg:grid-cols-12 lg:gap-8">
                                 <div className="flex flex-col gap-4 p-4 lg:p-9 lg:col-span-4">
                                     {service.subtitle && (
                                         <div className="flex items-center gap-4 font-semibold uppercase entry-subtitle">
@@ -336,7 +330,7 @@ export default function ServicesOverall({
                                         )}
                                     </div>
                                 </div>
-                            </div>
+                            </BlurFade>
                         ))}
                     </div>
                 </div>

@@ -77,9 +77,7 @@ export default function AboutFounder({
                 <div className="flex flex-col gap-6 header-area lg:col-span-6">
                     {subtitle && (
                         <BlurFade delay={0.25 * 2} inView>
-                            <div
-                                className="flex items-center gap-4 font-semibold uppercase entry-subtitle"
-                                data-aos="fade-in">
+                            <div className="flex items-center gap-4 font-semibold uppercase entry-subtitle">
                                 <span className="w-4 h-4 rounded-full bg-primary"></span>
                                 {subtitle}
                             </div>

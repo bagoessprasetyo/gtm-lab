@@ -1,11 +1,14 @@
 'use client'
-
-import { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Icon } from '@iconify/react'
 import { Button } from './ui/button'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 import ImgFooter1 from '../public/gif/img-footer-1.gif'
 import ImgFooter2 from '../public/gif/img-footer-2.gif'
@@ -62,40 +65,6 @@ const socialLinks = [
 ]
 
 export default function Footer() {
-    useEffect(() => {
-        // Initialize Swiper
-        const initSwiper = async () => {
-            const { default: Swiper } = await import('swiper')
-
-            new Swiper('.footer-carousel', {
-                slidesPerView: 2.5,
-                spaceBetween: 12,
-                loop: true,
-                speed: 1200,
-                autoplay: {
-                    delay: 4600,
-                    disableOnInteraction: false,
-                },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 3,
-                        spaceBetween: 12,
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 12,
-                    },
-                    1280: {
-                        slidesPerView: 5,
-                        spaceBetween: 12,
-                    },
-                },
-            })
-        }
-
-        initSwiper()
-    }, [])
-
     return (
         <footer id="footer">
             <div className="footer-top w-full relative overflow-hidden py-10 lg:py-20 xl:min-h-[560px]">
@@ -123,25 +92,42 @@ export default function Footer() {
                     </div>
                     <div className="xl:col-span-7">
                         <div className="max-w-6xl xl:absolute">
-                            <div className="swiper footer-carousel">
-                                <div className="swiper-wrapper">
-                                    {footerCarousel.map((image, index) => (
-                                        <div
-                                            key={index}
-                                            className="swiper-slide">
-                                            <Image
-                                                src={image}
-                                                alt={`Footer carousel ${
-                                                    index + 1
-                                                }`}
-                                                width={400}
-                                                height={395}
-                                                className="w-full h-auto rounded-[20px] object-cover"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
+                            <Swiper
+                                spaceBetween={12}
+                                slidesPerView={2.5}
+                                loop={true}
+                                autoplay={{
+                                    delay: 3200,
+                                    disableOnInteraction: false,
+                                }}
+                                speed={1200}
+                                breakpoints={{
+                                    640: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 12,
+                                    },
+                                    1024: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 12,
+                                    },
+                                    1280: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 12,
+                                    },
+                                }}
+                                modules={[Autoplay]}>
+                                {footerCarousel.map((image, index) => (
+                                    <SwiperSlide key={index}>
+                                        <Image
+                                            src={image}
+                                            alt={`Footer carousel ${index + 1}`}
+                                            width={400}
+                                            height={395}
+                                            className="w-full h-auto rounded-[20px] object-cover"
+                                        />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </div>
                     </div>
                 </div>
