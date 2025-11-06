@@ -271,12 +271,12 @@ export default function Services({
                                 </div>
                             </BlurFade>
                         )}
-                        <BlurFade delay={0.25 * 2} inView>
+                        <BlurFade delay={0.25} inView>
                             <h1 className="text-[32px] font-medium capitalize entry-title lg:text-5xl">
                                 {title}
                             </h1>
                         </BlurFade>
-                        <BlurFade delay={0.25 * 2} inView>
+                        <BlurFade delay={0.25} inView>
                             <div className="mt-2 entry-description">
                                 {description}
                             </div>
@@ -358,10 +358,7 @@ export default function Services({
                     {/* Mobile: Simple Cards */}
                     <div className="flex flex-col gap-4 lg:hidden">
                         {services.map((service, index) => (
-                            <BlurFade
-                                delay={0.25 + index * 0.05}
-                                inView
-                                key={index}>
+                            <BlurFade delay={0.25} inView key={index}>
                                 <div className="p-6 bg-tertiary border border-black rounded-3xl min-h-[400px] flex flex-col">
                                     <div className="flex flex-col justify-between w-full gap-6 flex-1">
                                         <div className="space-y-4">

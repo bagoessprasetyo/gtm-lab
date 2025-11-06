@@ -105,13 +105,13 @@ export default function AboutTeam({
                             </div>
                         </BlurFade>
                     )}
-                    <BlurFade delay={0.25 * 2} inView>
+                    <BlurFade delay={0.25} inView>
                         <h1 className="text-4xl font-medium entry-title lg:text-5xl">
                             {title}
                         </h1>
                     </BlurFade>
                     {description && (
-                        <BlurFade delay={0.25 * 3} inView>
+                        <BlurFade delay={0.25} inView>
                             <div className="mt-2 entry-description">
                                 {description}
                             </div>

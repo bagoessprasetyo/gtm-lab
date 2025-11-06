@@ -106,20 +106,20 @@ export default function Works({
                                     </div>
                                 </BlurFade>
                             )}
-                            <BlurFade delay={0.25 * 2} inView>
+                            <BlurFade delay={0.25} inView>
                                 <h1 className="text-[32px] font-medium entry-title lg:text-5xl">
                                     {title}
                                 </h1>
                             </BlurFade>
                             {description && (
-                                <BlurFade delay={0.25 * 3} inView>
+                                <BlurFade delay={0.25} inView>
                                     <div className="mt-2 entry-description">
                                         {description}
                                     </div>
                                 </BlurFade>
                             )}
                             {link && (
-                                <BlurFade delay={0.25 * 4} inView>
+                                <BlurFade delay={0.25} inView>
                                     <div className="flex flex-col items-start gap-4 mt-2 lg:mt-4 entry-main-button">
                                         <Button
                                             size="lg"
@@ -151,10 +151,7 @@ export default function Works({
                 <div className="w-full lg:col-span-7">
                     <div className="flex flex-col gap-6">
                         {works.map((work, idx) => (
-                            <BlurFade
-                                delay={0.25 + idx * 0.05}
-                                inView
-                                key={idx}>
+                            <BlurFade delay={0.25} inView key={idx}>
                                 <div className="flex flex-col gap-3 lg:gap-4">
                                     <div className="overflow-hidden img-wrap group rounded-xl">
                                         {work.image ? (

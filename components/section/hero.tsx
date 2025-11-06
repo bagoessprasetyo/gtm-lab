@@ -53,12 +53,12 @@ export default function Hero({
                         </BlurFade>
                     )}
 
-                    <BlurFade delay={0.25 * 2} inView>
+                    <BlurFade delay={0.25} inView>
                         <h1 className={titleClass}>{title}</h1>
                     </BlurFade>
 
                     {description && (
-                        <BlurFade delay={0.25 * 3} inView>
+                        <BlurFade delay={0.25} inView>
                             <div className="font-medium entry-description lg:text-[32px] text-[20px]">
                                 {description}
                             </div>
@@ -67,7 +67,7 @@ export default function Hero({
                 </div>
 
                 {link && (
-                    <BlurFade delay={0.25 * 4} inView>
+                    <BlurFade delay={0.25} inView>
                         <div className="flex entry-main-button">
                             <Button size="lg" asChild>
                                 <Link
@@ -91,7 +91,7 @@ export default function Hero({
                 )}
 
                 {video && variant === 'homepage' && (
-                    <BlurFade delay={0.25 * 5} inView>
+                    <BlurFade delay={0.25} inView>
                         <div className="w-full">
                             <video
                                 className="w-full rounded-xl"

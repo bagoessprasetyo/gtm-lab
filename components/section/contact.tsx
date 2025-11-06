@@ -46,7 +46,7 @@ export default function Contact({
                             </h1>
                         </BlurFade>
                         {description && (
-                            <BlurFade delay={0.25 * 2} inView>
+                            <BlurFade delay={0.25} inView>
                                 <div className="entry-description mt-6">
                                     {description}
                                 </div>

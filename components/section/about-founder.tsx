@@ -44,7 +44,7 @@ export default function AboutFounder({
             <div className="container flex flex-col gap-10 px-4 mx-auto xl:px-0 lg:grid lg:grid-cols-12 xl:gap-20">
                 <div className="space-y-4 lg:col-span-6 lg:max-w-[588px] hidden lg:block">
                     {image ? (
-                        <BlurFade>
+                        <BlurFade delay={0.25} inView>
                             <Image
                                 src={image}
                                 alt={imageAlt}
@@ -56,7 +56,7 @@ export default function AboutFounder({
                     ) : (
                         <div className="w-full h-[340px] bg-neutral-300"></div>
                     )}
-                    <BlurFade delay={0.25 * 2} inView>
+                    <BlurFade delay={0.25} inView>
                         <div className="w-full py-4 border-y border-neutral-200 overflow-hidden">
                             <Marquee pauseOnHover className="[--duration:10s]">
                                 {carouselTexts.map((text, index) => (
@@ -76,20 +76,20 @@ export default function AboutFounder({
 
                 <div className="flex flex-col gap-6 header-area lg:col-span-6">
                     {subtitle && (
-                        <BlurFade delay={0.25 * 2} inView>
+                        <BlurFade delay={0.25} inView>
                             <div className="flex items-center gap-4 font-semibold uppercase entry-subtitle">
                                 <span className="w-4 h-4 rounded-full bg-primary"></span>
                                 {subtitle}
                             </div>
                         </BlurFade>
                     )}
-                    <BlurFade delay={0.25 * 3} inView>
+                    <BlurFade delay={0.25} inView>
                         <h1 className="text-4xl border-b pb-6 lg:pb-0 border-black lg:border-0 font-medium entry-title lg:text-5xl">
                             {title}
                         </h1>
                     </BlurFade>
 
-                    <BlurFade delay={0.25 * 4} inView>
+                    <BlurFade delay={0.25} inView>
                         <div className="w-full lg:col-span-7 lg:hidden">
                             {image ? (
                                 <Image
@@ -121,7 +121,7 @@ export default function AboutFounder({
                         </div>
                     </BlurFade>
 
-                    <BlurFade delay={0.25 * 4} inView>
+                    <BlurFade delay={0.25} inView>
                         <div className="lg:border-t lg:border-black entry-main-content">
                             <div className="py-6 gap-4 flex items-center justify-between">
                                 <div className="text-base font-semibold uppercase lg:text-2xl">
