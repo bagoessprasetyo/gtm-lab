@@ -32,24 +32,28 @@ const branchs = [
         image: '/branch/img-branch-indonesia.svg',
         address:
             '📍 Jl. Dr. Susilo Raya No.111, RT.1/RW.5, Grogol,  Grogol Petamburan, West Jakarta, Jakarta',
+        desc:''
     },
     {
         country: 'Malaysia',
         image: '/branch/img-branch-malaysia.svg',
         address:
             '📍 Level 16, 1 Sentral, Jalan Stesen Sentral 5, KL Sentral, Kuala Lumpur 50470, Malaysia',
+        desc:''
     },
     {
         country: 'Philippines',
         image: '/branch/img-branch-philippines.svg',
         address:
             '📍 Level 29, 17 ADB Avenue, Joy Nostalg Center, Ortigas Center, Mandaluyong, Metro Manila, Philippines',
+        desc:''
     },
     {
         country: 'Hong Kong',
         image: '/branch/img-branch-hongkong.svg',
         address:
             '📍 Room 702, 7/F, Fu Fai Commercial Centre, 27 Hillier Street, Sheung Wan, Hong Kong',
+        desc:'Creator Ventures Limitied'
     },
 ]
 
@@ -179,6 +183,9 @@ export default function Footer() {
                                     <div>{branch.country}</div>
                                     <div className="text-sm text-neutral-400">
                                         {branch.address}
+                                    </div>
+                                    <div className="text-sm text-neutral-400">
+                                        {branch.desc}
                                     </div>
                                 </div>
                             ))}
